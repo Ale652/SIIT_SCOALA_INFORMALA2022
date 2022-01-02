@@ -1,0 +1,15 @@
+#gameContainer{
+    position: relative;
+    width: 400px; 
+    height: 400px;
+    margin: 0;
+}
+
+#player{
+    position: absolute;
+    /* z-index: -1; */
+    width: 5%;
+    left: 5%;
+    top:50px;
+    margin: 0;
+}

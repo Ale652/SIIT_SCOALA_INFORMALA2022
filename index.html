@@ -1,23 +1,144 @@
-<!--
-    # The Player
-
-1.  Definiti un container de dimensiuni fixe ( de exemplu height: 400, width: 400) unde puteti playerul - il numim gameContainer
-2.  Player sa poate misca in toate directile ( incepeti doar cu o directie )
-3.  Un player nu poate iesi inafara gameContainer ( de la punctul 1)
--->
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Player</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div id="gameContainer" style="background-color: rgb(0, 255, 255);"></div>
-  <div id="player" style="background-color: red;">Hello</div>
-  <script src="./app.js"></script>
-</body>
+<html>
+  <head>
+    <title>Responsive Site</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="menu-container">
+        <div class="menu-button" id="menu-button">
+          <img src="./burgerButton.png" />
+        </div>
+        <div class="menu-pages-container" id="pages">
+          <div class="arrow"></div>
+
+          <div class="pages">
+            <p>Page 1</p>
+            <p>Page 2</p>
+            <p>Page 3</p>
+            <p>Page 4</p>
+            <p>Page 5</p>
+            <p>Page 6</p>
+            <p>Page 7</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-container">
+        <div class="profile-icon">
+          <img
+            src="data:image/png;base64,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"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="person-container">
+        <div class="img">
+          <img src="./009-pumpkin.png" />
+        </div>
+        <div class="short-desc">
+          <p class="name">Pumpkin Head</p>
+          <p class="age">Age: 20</p>
+        </div>
+        <div class="content-description">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+            dolor nunc, pretium ultrices lectus sed, porttitor pharetra dolor.
+            Sed pretium convallis tortor, ac iaculis nisi ullamcorper eget.
+            Maecenas at laoreet eros. In hac habitasse platea dictumst. Morbi
+            sed leo id purus malesuada ultricies eu at metus. Cras sit amet nisi
+            tortor. Fusce a ex ac justo maximus facilisis sollicitudin at dolor.
+            Morbi nec odio egestas, vestibulum metus sed, luctus dui. Maecenas
+            posuere vitae erat quis malesuada. Curabitur lorem augue, blandit
+            vitae elementum vitae, aliquet in mi. Quisque sit amet pellentesque
+            odio. Mauris lobortis venenatis felis, in rhoncus sapien rhoncus
+            non. Vestibulum ac eros ligula. Mauris vitae ante ultrices ipsum
+            egestas facilisis non vitae nibh. Aliquam vel malesuada libero, id
+            eleifend velit. In hac habitasse platea dictumst. Quisque erat urna,
+            sagittis vitae suscipit at, ultrices pellentesque purus. Curabitur
+            et lorem non velit accumsan interdum ut id eros. Mauris porta nunc
+            felis, a elementum nisi mattis eu. Sed ut ligula sit amet lectus
+            porttitor iaculis. Nullam cursus, dolor eu imperdiet consequat, dui
+            mauris commodo diam, eget finibus ligula arcu pellentesque metus.
+            Morbi porta odio sapien, sed ultrices ex rhoncus vel. Cras ultrices
+            sed augue eget commodo. Suspendisse nunc lorem, euismod facilisis
+            sapien ut, pretium rutrum nisl.
+          </p>
+        </div>
+      </div>
+      <div class="person-container">
+        <div class="img">
+        <img src=".//003-devil-1.png" />
+      </div>
+        <div class="short-desc">
+          <p class="name">Devil Girl</p>
+          <p class="age">Age: 18</p>
+        </div>
+        <div class="content-description">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+            dolor nunc, pretium ultrices lectus sed, porttitor pharetra dolor.
+            Sed pretium convallis tortor, ac iaculis nisi ullamcorper eget.
+            Maecenas at laoreet eros. In hac habitasse platea dictumst. Morbi
+            sed leo id purus malesuada ultricies eu at metus. Cras sit amet nisi
+            tortor. Fusce a ex ac justo maximus facilisis sollicitudin at dolor.
+            Morbi nec odio egestas, vestibulum metus sed, luctus dui. Maecenas
+            posuere vitae erat quis malesuada. Curabitur lorem augue, blandit
+            vitae elementum vitae, aliquet in mi. Quisque sit amet pellentesque
+            odio. Mauris lobortis venenatis felis, in rhoncus sapien rhoncus
+            non. Vestibulum ac eros ligula. Mauris vitae ante ultrices ipsum
+            egestas facilisis non vitae nibh. Aliquam vel malesuada libero, id
+            eleifend velit. In hac habitasse platea dictumst. Quisque erat urna,
+            sagittis vitae suscipit at, ultrices pellentesque purus. Curabitur
+            et lorem non velit accumsan interdum ut id eros. Mauris porta nunc
+            felis, a elementum nisi mattis eu. Sed ut ligula sit amet lectus
+            porttitor iaculis. Nullam cursus, dolor eu imperdiet consequat, dui
+            mauris commodo diam, eget finibus ligula arcu pellentesque metus.
+            Morbi porta odio sapien, sed ultrices ex rhoncus vel. Cras ultrices
+            sed augue eget commodo. Suspendisse nunc lorem, euismod facilisis
+            sapien ut, pretium rutrum nisl.
+          </p>
+        </div>
+      </div>
+      <div class="person-container">
+        <div class="img">
+          <img src="./001-clown.png" />
+        </div>
+        <div class="short-desc">
+          <p class="name">Peny Wise</p>
+          <p class="age">Age: 90</p>
+        </div>
+        <div class="content-description">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+            dolor nunc, pretium ultrices lectus sed, porttitor pharetra dolor.
+            Sed pretium convallis tortor, ac iaculis nisi ullamcorper eget.
+            Maecenas at laoreet eros. In hac habitasse platea dictumst. Morbi
+            sed leo id purus malesuada ultricies eu at metus. Cras sit amet nisi
+            tortor. Fusce a ex ac justo maximus facilisis sollicitudin at dolor.
+            Morbi nec odio egestas, vestibulum metus sed, luctus dui. Maecenas
+            posuere vitae erat quis malesuada. Curabitur lorem augue, blandit
+            vitae elementum vitae, aliquet in mi. Quisque sit amet pellentesque
+            odio. Mauris lobortis venenatis felis, in rhoncus sapien rhoncus
+            non. Vestibulum ac eros ligula. Mauris vitae ante ultrices ipsum
+            egestas facilisis non vitae nibh. Aliquam vel malesuada libero, id
+            eleifend velit. In hac habitasse platea dictumst. Quisque erat urna,
+            sagittis vitae suscipit at, ultrices pellentesque purus. Curabitur
+            et lorem non velit accumsan interdum ut id eros. Mauris porta nunc
+            felis, a elementum nisi mattis eu. Sed ut ligula sit amet lectus
+            porttitor iaculis. Nullam cursus, dolor eu imperdiet consequat, dui
+            mauris commodo diam, eget finibus ligula arcu pellentesque metus.
+            Morbi porta odio sapien, sed ultrices ex rhoncus vel. Cras ultrices
+            sed augue eget commodo. Suspendisse nunc lorem, euismod facilisis
+            sapien ut, pretium rutrum nisl.
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="./src/index.js"></script>
+  </body>
 </html>

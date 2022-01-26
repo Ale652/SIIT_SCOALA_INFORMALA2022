@@ -1,15 +1,111 @@
-#gameContainer{
-    position: relative;
-    width: 400px; 
-    height: 400px;
-    margin: 0;
+
+.header{
+    display : flex;
+    justify-content: space-between;
+    background-color: gray;
 }
 
-#player{
+/* The container <div> - needed to position the dropdown content */
+.menu-container {
+    position: relative;
+    display: inline-block;
+  }
+
+/* Dropdown Content (Hidden by Default) */
+.menu-pages-container{   
+    display: none;
     position: absolute;
-    /* z-index: -1; */
-    width: 5%;
-    left: 5%;
-    top:50px;
-    margin: 0;
+    min-width: 160px; 
+    z-index: 1;   
+  }
+
+/* Links inside the dropdown */
+.pages p {
+    color: white;
+    background: rgba(0, 0, 0, 0.77);
+    height: 90px; 
+    width: 350px;
+    margin: 0px 20px;
+    display: flex;
+    flex-direction: row;
+    padding: 0px 100px;
+
+    font: bold 17px/25px Arial, Helvetica;
+    border-bottom: 5px solid white;
+    text-align: center;
+    vertical-align: middle; 
+    cursor: pointer; 
+ }
+
+  .pages p:last-child {  
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+  }
+  .pages p:first-child { 
+    margin-top: 6%;
+    border-top-left-radius: 10%;  
+    border-top-right-radius: 10%; 
+  }
+
+
+/* Show the dropdown menu on hover */
+.menu-container:hover .menu-pages-container {
+    display:flex;
+    }
+
+.menu-button > img{
+    border-radius: 50%;
+    height: 50px;
+    background-color:  rgb(230, 227, 227);
 }
+.profile-icon > img{
+    height: 50px;
+    background-color:  rgb(230, 227, 227);
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    border: 5px solid gray;
+}
+
+
+.person-container{
+    display: flex;
+    flex-direction: row;
+    border: 5px solid gray;
+    position:relative;
+}
+
+.short-desc{
+    display:none;
+    font-size: 30px;
+    position: absolute;  
+    top: 50%;
+    left: 9%;
+    transform: translate(-50%, -50%);
+}
+
+.content-description > p{
+    align-content: center;
+    font-size: 30px;
+}
+
+.person-container:hover .img {
+    opacity: 0.5;
+    
+}
+
+.person-container:hover .short-desc{
+    display: flex;
+    flex-direction: column;
+    transition: width 2s, height 4s;
+    font: bold 40px/25px Arial, Helvetica;
+}
+
+@media(min-width:800px){
+    p{
+        font-size: 1.5rem;
+    }
+}
+
